@@ -1,0 +1,9 @@
+# Talos nodes present kubelet's serving certificate as self-signed (there's no
+# cluster CA metrics-server trusts by default), so without --kubelet-insecure-tls
+# metrics-server can reach kubelet but fails TLS verification and every
+# `kubectl top` / HPA metrics query comes back empty. This is the standard,
+# documented requirement for metrics-server on Talos - not a security
+# shortcut specific to this cluster.
+metrics-server:
+  args:
+    - --kubelet-insecure-tls

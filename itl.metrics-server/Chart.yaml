@@ -1,0 +1,11 @@
+apiVersion: v2
+name: itl-metrics-server
+description: metrics-server for the ITL Talos cluster, with Talos's self-signed kubelet TLS handled
+type: application
+version: 0.1.0
+appVersion: "0.9.0"
+
+dependencies:
+  - name: metrics-server
+    version: "3.14.0"
+    repository: "https://kubernetes-sigs.github.io/metrics-server/"
